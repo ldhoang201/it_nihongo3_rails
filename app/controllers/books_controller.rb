@@ -18,9 +18,7 @@ class BooksController < ApplicationController
   end
   # POST /books or /books.json
  def create
-    @book_review = BookReview.new(book_review_params)
-    @book_review.user_id = current_user.id
-
+    @book = Book.new(book_params)
     respond_to do |format|
       if @book_review.save
         format.html { redirect_to @book_review, notice: "Book review was successfully created." }
